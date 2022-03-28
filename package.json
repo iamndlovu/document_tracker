@@ -1,0 +1,20 @@
+{
+  "name": "document-tracker",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "server-install": "npm install --prefix server",
+    "dev-server": "npm run dev --prefix server",
+    "server": "npm start --prefix server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run dev-server\" \"npm run client\"",
+    "start": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  },
+  "author": "iamndlovu",
+  "license": "MIT"
+}
