@@ -2,9 +2,10 @@ const { Schema, model } = require('mongoose');
 
 const PushRequestSchema = new Schema(
 	{
-		user: { type: String, required: true },
-		file: { type: String, required: true },
+		commit: { type: String, required: true },
 		status: { type: String, required: true, default: 'pending' },
+		// path of updated file
+		path: { type: String, required: true },
 	},
 	{ timestamps: true }
 );
