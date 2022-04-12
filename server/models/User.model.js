@@ -8,8 +8,7 @@ const UserSchema = new Schema(
 		password: { type: String, required: true },
 		bio: { type: String, required: true },
 		level: { type: String, required: true, default: 'staff' },
-		picture: { type: Buffer, required: true },
-		imgType: { type: String, required: true },
+		picture: { type: String },
 		logs: { type: Array },
 	},
 	{ timestamps: true }
