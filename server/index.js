@@ -32,13 +32,12 @@ try {
 	console.error(error);
 }
 
-// TODO:
 // Import and use routes
-// E.g: app.use('/users', require('./routes/api/users'));
-//
-//
-//
-//
+app.use('/users', require('./routes/api/users'));
+app.use('/files', require('./routes/api/files'));
+app.use('/commits', require('./routes/api/commits'));
+app.use('/push', require('./routes/api/push'));
+
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
