@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let PushRequest = require('../../models/File.model');
+let PushRequest = require('../../models/PushRequest.model');
 
 router.route('/').get(async (req, res) => {
 	try {
@@ -43,8 +43,9 @@ router.route('/add').post((req, res) => {
 				}
 			);
 		}
-		pushRequest.path = `/uploads/files/${commit}.${type.toLowerCase()}`;
 	} else res.status(400).json({ msg: 'No file uploaded' });
+
+	pushRequest.path = `/uploads/files/${commit}.${type.toLowerCase()}`;
 
 	const newPushRequest = new PushRequest(pushRequest);
 
