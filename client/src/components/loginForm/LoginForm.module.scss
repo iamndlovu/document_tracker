@@ -26,7 +26,7 @@
 			z-index: -10;
 		}
 
-		input,
+		input, select,
 		textarea {
 			height: 2.27rem;
 			width: 100%;
@@ -50,7 +50,7 @@
 			font-size: 1.13rem;
 		}
 
-		input:focus,
+		input:focus, select:focus,
 		textarea:focus {
 			background-color: $secondary-background;
 			border-color: $link-color;
@@ -59,14 +59,14 @@
 			box-shadow: 0 0 0 0.2rem $link-color;
 		}
 
-		input:hover,
+		input:hover, select:hover,
 		textarea:hover {
 			color: $secondary-text;
 		}
 	}
 
 	input,
-	textarea {
+	textarea, select {
 		background-color: $primary-background;
 		color: $primary-text;
 		font-size: 1.1rem;
@@ -77,7 +77,7 @@
 		transition: all 0.5s ease-in-out;
 	}
 
-	input:hover, input:focus {
+	input:hover, input:focus, select:focus {
 		color: $link-color;
     border-color: $link-color;
 	}
