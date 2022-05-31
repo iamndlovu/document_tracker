@@ -22,7 +22,7 @@ const RecentFiles = () => {
 				<tbody>
 					<tr>
 						<td>
-							<a href="/files/1368664hgj7jd5.pdf">file_abc.pdf</a>
+							<a href="/files/1368664hgj7jd5">file_abc.pdf</a>
 						</td>
 						<td>File ABC</td>
 						<td>PDF</td>
@@ -41,7 +41,7 @@ const RecentFiles = () => {
 					</tr>
 					<tr>
 						<td>
-							<a href="/files/1368664hgj7jd5.pdf">file_abc.pdf</a>
+							<a href="/files/1368664hgj7jd5">file_abc.pdf</a>
 						</td>
 						<td>File ABC</td>
 						<td>PDF</td>
@@ -60,7 +60,7 @@ const RecentFiles = () => {
 					</tr>
 					<tr>
 						<td>
-							<a href="/files/1368664hgj7jd5.pdf">file_abc.pdf</a>
+							<a href="/files/1368664hgj7jd5">file_abc.pdf</a>
 						</td>
 						<td>File ABC</td>
 						<td>PDF</td>
@@ -79,7 +79,7 @@ const RecentFiles = () => {
 					</tr>
 					<tr>
 						<td>
-							<a href="/files/1368664hgj7jd5.pdf">file_abc.pdf</a>
+							<a href="/files/1368664hgj7jd5">file_abc.pdf</a>
 						</td>
 						<td>File ABC</td>
 						<td>PDF</td>
@@ -98,7 +98,7 @@ const RecentFiles = () => {
 					</tr>
 					<tr>
 						<td>
-							<a href="/files/1368664hgj7jd5.pdf">file_abc.pdf</a>
+							<a href="/files/1368664hgj7jd5">file_abc.pdf</a>
 						</td>
 						<td>File ABC</td>
 						<td>PDF</td>

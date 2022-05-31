@@ -1,3 +1,68 @@
+@import '../../variables.scss';
+
 .RecentFiles {
-  background-color: rgb(7, 113, 212);
+  width: 100%;
+
+  h2{
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  table {
+    color: $secondary-text;
+    border: 2px solid rgba($color: $secondary-text, $alpha: .6);
+    border-collapse: collapse;
+
+    thead {
+      tr {
+        th {
+          padding-top: .4rem;
+          padding-bottom: .4rem;
+          border: 2px solid rgba($color: $secondary-text, $alpha: .6);
+          border-top: 0;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          border: 1px solid rgba($color: $secondary-text, $alpha: .6);
+          border-left-width: 2px;
+          border-right-width: 2px;
+          border-bottom: 0;
+          border-top: 0;
+          padding: .4rem 2rem;
+
+          a {
+            color: darken($color: $link-color, $amount: 30);
+            text-decoration: none;
+          }
+        }
+
+        &:nth-child(even) {
+          background-color: lighten($color: rgba($color: $darker-background, $alpha: 0.9), $amount: 75);
+        }
+      }
+    }
+  }
+
+  .cta {
+    margin: 1.25rem 0;
+
+    a {
+      text-decoration: none;
+      color: $primary-text;
+      background-color: $primary-background;
+      border: 2px solid transparent;
+      border-radius: 7px;
+      padding: 10px 2rem;
+      transition: all 0.5s ease-out;
+
+      &:hover {
+        color: $link-color;
+        border-color: $link-color;
+      }
+    }
+  }
 }
