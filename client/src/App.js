@@ -17,7 +17,7 @@ function App() {
 		email: 'pndlovu@gmail.com',
 		password: 'admin@admin',
 		bio: 'Another system user',
-		level: 'staff',
+		level: 'admin',
 		picture: 'el.jpg',
 		logs: [
 			`${Math.round(Math.random() * 200029999120001098176)}`,
@@ -35,7 +35,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home user={user} />} />
 					<Route path="/login" element={<Login />} />
-					<Route path="/register" element={<Register />} />
+					<Route path="/register" element={<Register user={user} />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

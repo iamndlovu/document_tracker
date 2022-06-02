@@ -1,6 +1,6 @@
 @import '../../variables.scss';
 
-.RecentFiles {
+.RecentFiles, .PushRequests {
   width: 100%;
 
   h2{
@@ -12,6 +12,7 @@
     color: $secondary-text;
     border: 2px solid rgba($color: $secondary-text, $alpha: .6);
     border-collapse: collapse;
+    margin-bottom: 1rem;
 
     thead {
       tr {
