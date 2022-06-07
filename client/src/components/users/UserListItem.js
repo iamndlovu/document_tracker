@@ -31,7 +31,7 @@ const UserListItem = ({ user }) => {
 			</section>
 			<section className={styles.actions}>
 				<button>Edit User</button>
-				<button>Delete User</button>
+				<button className={styles.danger}>Delete User</button>
 				<button>View Activity</button>
 			</section>
 		</li>

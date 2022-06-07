@@ -55,10 +55,35 @@
     align-items: center;
     justify-content: center;
 
+    button {
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      background-color: #252b35;
+      border: 2px solid transparent;
+      border-radius: 7px;
+      font-size: 1rem;
+      padding: 10px 2rem;
+      transition: all 0.5s ease-out;
+
+      &:hover {
+        color: #61dafb;
+        border-color: #61dafb;
+      }
+
+      &.danger {
+        background-color: crimson;
+
+        &:hover {
+          color: crimson;
+          border-color: crimson;
+          background-color: $secondary-background;
+        }
+      }
+    }
+
     button:nth-child(2) {
       margin: 0 5rem;
     }
   }
 }
-
-// TODO: COLORS and STYLING 
