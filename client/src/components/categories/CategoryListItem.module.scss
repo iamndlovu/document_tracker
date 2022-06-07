@@ -1,0 +1,36 @@
+@import '../../variables.scss';
+
+.CategoryListItem {
+  background-color: $primary-background;
+  color: $primary-text;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 4px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+
+  span{
+    &:first-child {
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 4.5px;
+      font-weight: 600;
+      margin-right: 1rem;
+    }
+
+    &:last-child {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+      background-color: crimson;
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+}

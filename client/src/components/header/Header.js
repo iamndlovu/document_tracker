@@ -46,7 +46,7 @@ const Header = ({ user }) => {
 					</li>
 					<li>
 						<NavLink
-							to={user ? 'logout' : '/login'}
+							to={user ? '/logout' : '/login'}
 							className={({ isActive }) => isActive && headerStyles.active}
 						>
 							{user ? 'Log Out' : 'Log In'}

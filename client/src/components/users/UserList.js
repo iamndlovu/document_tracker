@@ -12,9 +12,8 @@ const UserList = ({ user }) => {
 
 	return (
 		(level === 'admin' && (
-			// TODO: HEADING
 			<>
-				<h1 className={styles.heading}>System Users</h1>
+				<h1 className={'heading ' + styles.heading}>System Users</h1>
 				<ul className={styles.UserList}>
 					{users.map(id => (
 						<div key={id}>

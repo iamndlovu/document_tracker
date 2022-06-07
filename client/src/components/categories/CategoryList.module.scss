@@ -1,0 +1,12 @@
+@import '../../variables.scss';
+
+.heading {
+  padding: $side-padding;
+}
+
+.CategoryList {
+  padding: $side-padding;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
