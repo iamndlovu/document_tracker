@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import headerStyles from './Header.module.scss';
 
-const Header = () => {
+const Header = ({ user }) => {
 	//menu state
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -46,10 +46,10 @@ const Header = () => {
 					</li>
 					<li>
 						<NavLink
-							to="/login"
+							to={user ? 'logout' : '/login'}
 							className={({ isActive }) => isActive && headerStyles.active}
 						>
-							Log In
+							{user ? 'Log Out' : 'Log In'}
 						</NavLink>
 					</li>
 					<li>

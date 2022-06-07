@@ -3,11 +3,11 @@ import { Navigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import RegistrationForm from './../components/registrationForm/RegistrationForm';
 
-const login = ({ user }) => {
+const register = ({ user }) => {
 	const level = user.level.toLowerCase();
 	if (level === 'admin')
 		return (
-			<Layout title="Register - Document Tracker">
+			<Layout title="Register - Document Tracker" user={user}>
 				<main
 					style={{
 						display: 'flex',
@@ -25,4 +25,4 @@ const login = ({ user }) => {
 	else <Navigate to="/" replace />;
 };
 
-export default login;
+export default register;

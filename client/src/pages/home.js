@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 
 const Home = ({ user }) => {
 	return (
-		<Layout title="Welcome to The Document Tracker">
+		<Layout title="Welcome to The Document Tracker" user={user}>
 			{user ? <Dashboard user={user} /> : <Navigate to="/login" replace />}
 		</Layout>
 	);

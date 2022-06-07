@@ -5,7 +5,7 @@ import Footer from './footer/Footer';
 
 import pageLayout from './Layout.module.scss';
 
-const Layout = ({ children, title }) => {
+const Layout = ({ children, title, user }) => {
 	return (
 		<>
 			<Helmet>
@@ -13,7 +13,7 @@ const Layout = ({ children, title }) => {
 			</Helmet>
 			<div className={pageLayout.Layout}>
 				<div className={pageLayout.container}>
-					<Header />
+					<Header user={user} />
 					{children}
 				</div>
 				<Footer />

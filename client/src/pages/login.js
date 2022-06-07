@@ -4,7 +4,7 @@ import LoginForm from './../components/loginForm/LoginForm';
 
 const login = () => {
 	return (
-		<Layout title="Login - Document Tracker">
+		<Layout title="Login - Document Tracker" user={undefined}>
 			<main
 				style={{
 					display: 'flex',

@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 
 const Users = ({ user }) => {
 	return (
-		<Layout title="Users - Document Tracker">
+		<Layout title="Users - Document Tracker" user={user}>
 			{user ? (
 				<main
 					style={{
