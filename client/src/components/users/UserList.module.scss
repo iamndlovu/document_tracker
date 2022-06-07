@@ -1,7 +1,16 @@
 @import '../../variables.scss';
 
+.heading {
+  padding: $side-padding;
+  font-size: 4rem;
+  font-weight: 400;
+  color: $primary-text;
+  background-color: $primary-background;
+}
+
 .UserList {
   padding: $side-padding;
   list-style: none;
 	justify-content: center;
+  background-color: $primary-background;
 }

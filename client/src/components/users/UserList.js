@@ -12,13 +12,17 @@ const UserList = ({ user }) => {
 
 	return (
 		(level === 'admin' && (
-			<ul className={styles.UserList}>
-				{users.map(id => (
-					<div key={id}>
-						<UserListItem user={user} />
-					</div>
-				))}
-			</ul>
+			// TODO: HEADING
+			<>
+				<h1 className={styles.heading}>System Users</h1>
+				<ul className={styles.UserList}>
+					{users.map(id => (
+						<div key={id}>
+							<UserListItem user={user} />
+						</div>
+					))}
+				</ul>
+			</>
 		)) || <Restricted />
 	);
 };
