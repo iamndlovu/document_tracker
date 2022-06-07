@@ -11,14 +11,15 @@ const UserList = ({ user }) => {
 	const users = [1, 12, 13, 11, 10, 16, 18];
 
 	return (
-		<ul className={styles.UserList}>
-			{(level === 'admin' &&
-				users.map(id => (
+		(level === 'admin' && (
+			<ul className={styles.UserList}>
+				{users.map(id => (
 					<div key={id}>
 						<UserListItem user={user} />
 					</div>
-				))) || <Restricted />}
-		</ul>
+				))}
+			</ul>
+		)) || <Restricted />
 	);
 };
 

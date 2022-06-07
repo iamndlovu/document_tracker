@@ -11,6 +11,9 @@ const Users = ({ user }) => {
 					style={{
 						width: '100%',
 						flexGrow: 1,
+
+						display: 'flex',
+						flexDirection: 'column',
 					}}
 				>
 					<UserList user={user} />
