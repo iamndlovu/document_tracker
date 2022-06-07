@@ -31,7 +31,7 @@ const RecentActivity = ({ activities, userID }) => {
 			</ul>
 			{userID && (
 				<div className={styles.cta}>
-					<Link to={`${userID}/activity`} role="button">
+					<Link to={`/logs/${userID}`} role="button">
 						See All
 					</Link>
 				</div>

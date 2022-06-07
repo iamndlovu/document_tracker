@@ -4,6 +4,8 @@ import Home from './pages/home';
 import Login from './pages/login';
 import Register from './pages/register';
 import Users from './pages/users';
+import Categories from './pages/categories';
+import Logs from './pages/logs';
 
 function App() {
 	// eslint-disable-next-line
@@ -37,6 +39,8 @@ function App() {
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register user={user} />} />
 					<Route path="/users" element={<Users user={user} />} />
+					<Route path="/categories" element={<Categories user={user} />} />
+					<Route path="/logs/:id" element={<Logs user={user} />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
