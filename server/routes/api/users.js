@@ -86,9 +86,7 @@ router.route('/update/:id').post((req, res) => {
 				// SAVE IMAGE AS BINARY
 				if (picture != null) {
 					picture.mv(
-						`${__dirname}/../../public/uploads/userDp/${
-							newUser._id
-						}${picture.name
+						`${__dirname}/../../public/uploads/userDp/${user._id}${picture.name
 							.substring(picture.name.lastIndexOf('.'))
 							.toLowerCase()}`,
 						err => {
@@ -98,7 +96,7 @@ router.route('/update/:id').post((req, res) => {
 							}
 						}
 					);
-					user.picture = `/uploads/userDp/${newUser._id}${picture.name
+					user.picture = `/uploads/userDp/${user._id}${picture.name
 						.substring(picture.name.lastIndexOf('.'))
 						.toLowerCase()}`;
 				}

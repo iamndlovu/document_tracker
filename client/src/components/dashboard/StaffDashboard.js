@@ -16,7 +16,7 @@ const StaffDashboard = ({ user }) => {
 			</div>
 			<div className={styles.activity}>
 				<div className={styles.container}>
-					<RecentActivity activities={user.logs} userID={user._id} />
+					{/* <RecentActivity activityIDs={user.logs} userID={user._id} /> */}
 				</div>
 			</div>
 			{level === 'admin' && (

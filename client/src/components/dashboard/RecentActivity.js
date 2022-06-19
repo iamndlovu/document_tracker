@@ -1,35 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loading from '../Loading';
+import fetchById from '../../modules/fetchById';
 
 import styles from './RecentActivity.module.scss';
 
-const RecentActivity = ({ activities, userID }) => {
+const RecentActivity = ({ activityIDs = [], userID }) => {
+	const [activities, setActivities] = useState([]);
+
+	// useEffect(() => {
+	activityIDs.forEach(id => {
+		fetchById('activities', id).then(activities =>
+			setActivities(state => [...state, activities])
+		);
+	});
+	// }, [activityIDs]);
+
 	return (
 		<section className={styles.RecentActivity}>
-			<h2 className={styles.sectionHeader}>Recent Activity</h2>
-			<ul>
-				<li>
-					<Link to={`activities/${activities[0]}`}>{activities[0]}</Link> -
-					modified fileABC
-				</li>
-				<li>
-					<Link to={`activities/${activities[1]}`}>{activities[1]}</Link> -
-					modified fileABC
-				</li>
-				<li>
-					<Link to={`activities/${activities[2]}`}>{activities[2]}</Link> -
-					modified fileABC
-				</li>
-				<li>
-					<Link to={`activities/${activities[3]}`}>{activities[3]}</Link> -
-					modified fileABC
-				</li>
-				<li>
-					<Link to={`activities/${activities[4]}`}>{activities[4]}</Link> -
-					modified fileABC
-				</li>
-			</ul>
-			{userID && (
+			{userID && <h2 className={styles.sectionHeader}>Recent Activity</h2>}
+			{
+				activities.length > 0 && (
+					<ul>
+						{activities.map(activity => (
+							<li key={activity.reference}>
+								<Link to={`/activities/${activity._id}`}>{activity._id}</Link> -
+								modified fileABC
+							</li>
+						))}
+					</ul>
+				) /*|| <Loading message={'No activity'} />*/
+			}
+			{userID && activities.length > 5 && (
 				<div className={styles.cta}>
 					<Link to={`/logs/${userID}`} role="button">
 						See All

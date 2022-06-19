@@ -2,10 +2,11 @@ import React from 'react';
 
 import styles from './UserListItem.module.scss';
 
-const UserListItem = ({ user }) => {
-	// eslint-disable-next-line
+const UserListItem = ({ user, handlers }) => {
 	const { fullName, username, level, bio, email, picture, updatedAt, _id } =
 		user;
+	const { deleteUser, toggleForm } = handlers;
+
 	return (
 		<li className={styles.UserListItem}>
 			<section className={styles.dp}>
@@ -30,8 +31,10 @@ const UserListItem = ({ user }) => {
 				</div>
 			</section>
 			<section className={styles.actions}>
-				<button>Edit User</button>
-				<button className={styles.danger}>Delete User</button>
+				<button onClick={() => toggleForm(_id)}>Edit User</button>
+				<button className={styles.danger} onClick={() => deleteUser(_id)}>
+					Delete User
+				</button>
 				<button>View Activity</button>
 			</section>
 		</li>

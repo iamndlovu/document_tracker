@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { DropzoneArea } from 'material-ui-dropzone';
 
 import styles from '../loginForm/LoginForm.module.scss';
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ user, toggleForm }) => {
+	const [firstName, setFirstName] = useState('');
+	const [lastName, setLastName] = useState('');
+	const [username, setUsername] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [confirm, setConfirm] = useState('');
+	const [bio, setBio] = useState('');
+	const [level, setLevel] = useState(null);
+	const [picture, setPicture] = useState(null);
+
+	useEffect(() => {
+		if (user) {
+			const { username, email, bio, password } = user;
+			setUsername(username);
+			setEmail(email);
+			setBio(bio);
+			setPassword(password);
+			setConfirm(password);
+		}
+	}, [user]);
+
 	const useStyles = makeStyles(() => ({
 		dropZone: {
 			height: '100%',
@@ -24,7 +45,6 @@ const RegistrationForm = () => {
 			item: 'true',
 			xs: '12',
 			flex: '1',
-			background: 'red',
 			overflow: 'hidden',
 		},
 		previewImg: {
@@ -37,30 +57,36 @@ const RegistrationForm = () => {
 
 	return (
 		<form className={styles.LoginForm}>
-			<div className={styles.formGroup}>
-				<label htmlFor="firstname" className={styles.offscreen}>
-					Your First Name
-				</label>
-				<input
-					type="text"
-					name="firstname"
-					id="firstname"
-					placeholder="First Name"
-					required
-				/>
-			</div>
-			<div className={styles.formGroup}>
-				<label htmlFor="lastname" className={styles.offscreen}>
-					Your Last Name(s)
-				</label>
-				<input
-					type="text"
-					name="lastname"
-					id="lastname"
-					placeholder="Last Name(s)"
-					required
-				/>
-			</div>
+			{!user && (
+				<>
+					<div className={styles.formGroup}>
+						<label htmlFor="firstname" className={styles.offscreen}>
+							Your First Name
+						</label>
+						<input
+							type="text"
+							name="firstname"
+							id="firstname"
+							placeholder="First Name"
+							value={firstName}
+							required
+						/>
+					</div>
+					<div className={styles.formGroup}>
+						<label htmlFor="lastname" className={styles.offscreen}>
+							Your Last Name(s)
+						</label>
+						<input
+							type="text"
+							name="lastname"
+							id="lastname"
+							placeholder="Last Name(s)"
+							value={lastName}
+							required
+						/>
+					</div>
+				</>
+			)}
 			<div className={styles.formGroup}>
 				<label htmlFor="username" className={styles.offscreen}>
 					Your username
@@ -70,6 +96,7 @@ const RegistrationForm = () => {
 					name="username"
 					id="username"
 					placeholder="Username"
+					value={username}
 					required
 				/>
 			</div>
@@ -82,6 +109,7 @@ const RegistrationForm = () => {
 					name="email"
 					id="email"
 					placeholder="Email"
+					value={email}
 					required
 				/>
 			</div>
@@ -93,20 +121,29 @@ const RegistrationForm = () => {
 					id="bio"
 					name="bio"
 					placeholder="Write a short bio here"
+					value={bio}
 					required
 				></textarea>
 			</div>
-			<div className={styles.formGroup}>
-				<label htmlFor="level" className={styles.offscreen}>
-					Select Access Level
-				</label>
-				<select name="level" id="level" placeholder="Access level" required>
-					<option value={null}>--Select Access Level--</option>
-					<option value="Administrator">Administrator</option>
-					<option value="Register">Register</option>
-					<option value="Staff">Staff</option>
-				</select>
-			</div>
+			{!user && (
+				<div className={styles.formGroup}>
+					<label htmlFor="level" className={styles.offscreen}>
+						Select Access Level
+					</label>
+					<select
+						name="level"
+						id="level"
+						placeholder="Access level"
+						value={level}
+						required
+					>
+						<option value={null}>--Select Access Level--</option>
+						<option value="Administrator">Administrator</option>
+						<option value="Register">Register</option>
+						<option value="Staff">Staff</option>
+					</select>
+				</div>
+			)}
 			<div className={styles.formGroup}>
 				<label htmlFor="picture" className={styles.offscreen}>
 					Upload a profile picture
@@ -133,7 +170,7 @@ const RegistrationForm = () => {
 							);
 					}}
 					showAlerts={['error', 'info']}
-					onChange={files => console.log('Files:', files)}
+					onChange={files => onC(files[0])}
 				/>
 			</div>
 			<div className={styles.formGroup}>
