@@ -48,6 +48,11 @@ const UserList = ({ user }) => {
 		} else {
 			setActiveEdit(null);
 			setShowForm(false);
+			axios
+				.get('http://localhost:5000/users')
+				.then(res => res.data)
+				.then(data => setUsers(data))
+				.catch(err => setMsg(`Failed to fetch system users : ${err}`));
 		}
 	};
 
