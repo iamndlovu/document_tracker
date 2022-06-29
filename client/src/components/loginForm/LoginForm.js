@@ -12,21 +12,24 @@ const LoginForm = ({ handler }) => {
 		axios.get('http://localhost:5000/users').then(res => setUsers(res.data));
 	});
 
+	const onChangeEmail = e => setEmail(e.target.value);
+	const onChangePwd = e => setPassword(e.target.value);
+
 	const submitForm = e => {
 		e.preventDefault();
 
-		users.forEach(user => {
+		for (let user of users) {
 			if (user.email === email && user.password === password) {
 				handler(user);
 				return;
 			}
-		});
+		}
 
 		alert('Wrong email or password');
 	};
 
 	return (
-		<form className={styles.LoginForm}>
+		<form className={styles.LoginForm} onSubmit={submitForm}>
 			<div className={styles.formGroup}>
 				<label htmlFor="email" className={styles.offscreen}>
 					Your email address
@@ -36,6 +39,8 @@ const LoginForm = ({ handler }) => {
 					name="email"
 					id="email"
 					placeholder="Email"
+					value={email}
+					onChange={onChangeEmail}
 					required
 				/>
 			</div>
@@ -48,6 +53,8 @@ const LoginForm = ({ handler }) => {
 					name="password"
 					id="password"
 					placeholder="Password"
+					value={password}
+					onChange={onChangePwd}
 					required
 				/>
 			</div>
