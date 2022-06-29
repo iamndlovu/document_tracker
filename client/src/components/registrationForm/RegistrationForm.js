@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { DropzoneArea } from 'material-ui-dropzone';
+import axios from 'axios';
 
 import styles from '../loginForm/LoginForm.module.scss';
 
@@ -105,7 +106,7 @@ const RegistrationForm = ({ user, toggleForm }) => {
 	const classes = useStyles();
 
 	return (
-		<form className={styles.LoginForm}>
+		<form className={styles.LoginForm} onSubmit={onSubmitForm}>
 			{!user && (
 				<>
 					<div className={styles.formGroup}>

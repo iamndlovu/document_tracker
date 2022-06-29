@@ -7,7 +7,10 @@ const UserOverview = ({ user }) => {
 		<section className={styles.UserOverview}>
 			<div className={styles.container}>
 				<div className={styles.avatar}>
-					<img src={user.picture} alt={user.username} />
+					<img
+						src={`http://localhost:5000${user.picture}`}
+						alt={user.username}
+					/>
 				</div>
 				<div className={styles.userInfo}>
 					<h2>{user.fullName}</h2>
