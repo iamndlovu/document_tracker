@@ -38,6 +38,7 @@ app.use('/files', require('./routes/api/files'));
 app.use('/commits', require('./routes/api/commits'));
 app.use('/push', require('./routes/api/push'));
 app.use('/activities', require('./routes/api/activity'));
+app.use('/categories', require('./routes/api/category'));
 
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')));

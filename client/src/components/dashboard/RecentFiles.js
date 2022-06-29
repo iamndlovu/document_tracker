@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
+import FileItem from './FileItem';
+import axios from 'axios';
 
 import styles from './RecentFiles.module.scss';
 
 const RecentFiles = () => {
+	const [files, setFiles] = useState(null);
+
+	useEffect(() => {
+		axios
+			.get('http://localhost:5000/files')
+			.then(res => res.data)
+			.then(data => setFiles(data))
+			.catch(err => alert(err));
+	});
+
 	return (
 		<section className={styles.RecentFiles}>
 			<h2 className={styles.sectionHeader}>Recently Added Files</h2>
@@ -20,105 +31,10 @@ const RecentFiles = () => {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>
-							<a href="/files/1368664hgj7jd5">file_abc.pdf</a>
-						</td>
-						<td>File ABC</td>
-						<td>PDF</td>
-						<td>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-							totam ratione sit facere illum iusto eveniet ad vel iure unde.
-						</td>
-						<td>
-							<Link
-								to={`users/${Math.round(Math.random() * 12292010008172820101)}`}
-							>
-								@{`loremipsum`}
-							</Link>
-						</td>
-						<td>{`${moment(new Date()).fromNow()}`}</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="/files/1368664hgj7jd5">file_abc.pdf</a>
-						</td>
-						<td>File ABC</td>
-						<td>PDF</td>
-						<td>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-							totam ratione sit facere illum iusto eveniet ad vel iure unde.
-						</td>
-						<td>
-							<Link
-								to={`users/${Math.round(Math.random() * 12292010008172820101)}`}
-							>
-								@{`loremipsum`}
-							</Link>
-						</td>
-						<td>{`${moment(new Date()).fromNow()}`}</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="/files/1368664hgj7jd5">file_abc.pdf</a>
-						</td>
-						<td>File ABC</td>
-						<td>PDF</td>
-						<td>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-							totam ratione sit facere illum iusto eveniet ad vel iure unde.
-						</td>
-						<td>
-							<Link
-								to={`users/${Math.round(Math.random() * 12292010008172820101)}`}
-							>
-								@{`loremipsum`}
-							</Link>
-						</td>
-						<td>{`${moment(new Date()).fromNow()}`}</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="/files/1368664hgj7jd5">file_abc.pdf</a>
-						</td>
-						<td>File ABC</td>
-						<td>PDF</td>
-						<td>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-							totam ratione sit facere illum iusto eveniet ad vel iure unde.
-						</td>
-						<td>
-							<Link
-								to={`users/${Math.round(Math.random() * 12292010008172820101)}`}
-							>
-								@{`loremipsum`}
-							</Link>
-						</td>
-						<td>{`${moment(new Date()).fromNow()}`}</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="/files/1368664hgj7jd5">file_abc.pdf</a>
-						</td>
-						<td>File ABC</td>
-						<td>PDF</td>
-						<td>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-							totam ratione sit facere illum iusto eveniet ad vel iure unde.
-						</td>
-						<td>
-							<Link
-								to={`users/${Math.round(Math.random() * 12292010008172820101)}`}
-							>
-								@{`loremipsum`}
-							</Link>
-						</td>
-						<td>{`${moment(new Date()).fromNow()}`}</td>
-					</tr>
+					{files && files.map(file => <FileItem key={file._id} file={file} />)}
 				</tbody>
 			</table>
-			{/* TODO: GET TOTAL FILES COUNT */}
-			Number of Files: 109
+			Number of Files: {(files && files.length) || 'counting...'}
 			<div className={styles.cta}>
 				<Link to={`/files`}>Show All</Link>
 			</div>

@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import LoginForm from './../components/loginForm/LoginForm';
 
-const login = ({ user }) => {
+const login = ({ user, handler }) => {
 	return (
 		(user && <Navigate to="/" />) || (
 			<Layout title="Login - Document Tracker" user={undefined}>
@@ -17,7 +17,7 @@ const login = ({ user }) => {
 						height: '100%',
 					}}
 				>
-					<LoginForm />
+					<LoginForm handler={handler} />
 				</main>
 			</Layout>
 		)

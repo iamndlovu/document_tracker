@@ -10,7 +10,7 @@ const UserListItem = ({ user, handlers }) => {
 	return (
 		<li className={styles.UserListItem}>
 			<section className={styles.dp}>
-				<img src={picture} alt={username} />
+				<img src={`http://localhost:5000${picture}`} alt={username} />
 			</section>
 			<section className={styles.bio}>
 				<b>Bio:</b>

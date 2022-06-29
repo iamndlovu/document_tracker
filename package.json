@@ -13,7 +13,8 @@
     "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.0.0",
+    "react-promise": "^3.0.2"
   },
   "author": "iamndlovu",
   "license": "MIT"
