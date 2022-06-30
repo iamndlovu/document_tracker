@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+.FileList {
+  flex-grow: 1;
+  padding: $side-padding;
+
+  .heading {
+    margin-bottom: $side-padding;
+  }
+}

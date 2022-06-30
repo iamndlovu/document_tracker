@@ -8,6 +8,50 @@
     margin-bottom: 1rem;
   }
 
+  .modal {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    z-index: 2;
+    top: $header-height;
+    left: 0;
+    background-color: rgba($color: $primary-background, $alpha: 0.9);
+    transform: translateY(-150%);
+    transition: all 0.7s ease-out;
+
+    &.show {
+      transform: translateY(0);
+    }
+  }
+
+  .closeBtn {
+    position: fixed;
+    z-index: 3;
+    top: $header-height;
+    right: $side-padding;
+    transform: translateY($side-padding);
+    font-size: 5rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    color: crimson;
+  }
+
+  .ctaButton {
+    margin-bottom: $side-padding;
+    background: $darker-background;
+    color: $primary-text;
+    padding: .5rem 1rem;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+
+    &:hover {
+      color: $link-color;
+      border-color: $link-color;
+    }
+  }
+
   table {
     color: $secondary-text;
     border: 2px solid rgba($color: $secondary-text, $alpha: .6);
@@ -38,6 +82,25 @@
           a {
             color: darken($color: $link-color, $amount: 30);
             text-decoration: none;
+          }
+
+          button {
+            margin-right: .5rem;
+            margin-top: .3rem;
+            padding: 0.06rem .3rem;
+            cursor: pointer;
+            font-size: .9rem;
+            transition: all 0.5s ease-out;
+
+            &:hover {
+              background: $primary-background;
+              color: $primary-text;
+            }
+
+            &:last-child {
+              margin: 0;
+              color: crimson;
+            }
           }
         }
 

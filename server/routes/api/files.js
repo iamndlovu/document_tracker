@@ -22,13 +22,13 @@ router.route('/:id').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-	const { name, category, description, tags, type, owner } = req.body;
+	const { name, category, description, type, owner } = req.body;
 
 	let file = {
 		name,
 		category,
 		description,
-		tags,
+		tags: [],
 		type,
 		owner,
 	};

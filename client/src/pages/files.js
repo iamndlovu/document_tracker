@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import Layout from '../components/Layout';
+import FileList from '../components/files/FileList';
 
 const Files = ({ user }) => {
 	return (
@@ -15,7 +16,7 @@ const Files = ({ user }) => {
 						flexDirection: 'column',
 					}}
 				>
-					<h1>Document list</h1>
+					<FileList />
 				</main>
 			) : (
 				<Navigate to="/login" replace />
