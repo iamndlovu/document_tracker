@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import axios from 'axios';
 
-const FileItem = ({ file, showAll }) => {
+const FileItem = ({ file, showAll, handler }) => {
 	const [user, setUser] = useState(null);
 
 	useEffect(() => {
@@ -44,7 +44,7 @@ const FileItem = ({ file, showAll }) => {
 							View
 						</a>
 					</button>
-					<button>Delete</button>
+					<button onClick={() => handler(file._id)}>Delete</button>
 				</td>
 			)}
 		</tr>

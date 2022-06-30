@@ -42,6 +42,19 @@ const RecentFiles = ({ showAll }) => {
 		}
 	};
 
+	const handleDelete = async id => {
+		try {
+			const res = await axios.delete(`http://localhost:5000/files/${id}`);
+			alert(res.data);
+			if (res.data) {
+				const newArr = files.filter(file => file._id !== id);
+				setFiles(newArr);
+			}
+		} catch (err) {
+			alert(`Failed to delete document:\n ${err}`);
+		}
+	};
+
 	useEffect(() => {
 		axios
 			.get('http://localhost:5000/files')
@@ -102,7 +115,12 @@ const RecentFiles = ({ showAll }) => {
 				<tbody>
 					{files &&
 						files.map(file => (
-							<FileItem showAll={showAll} key={file._id} file={file} />
+							<FileItem
+								showAll={showAll}
+								handler={handleDelete}
+								key={file._id}
+								file={file}
+							/>
 						))}
 				</tbody>
 			</table>
