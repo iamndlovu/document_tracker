@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import Login from './pages/login';
@@ -12,8 +12,20 @@ import Logs from './pages/logs';
 function App() {
 	const [user, setUser] = useState(null);
 
-	const handleLogin = nuser => setUser(nuser);
-	const handleLougout = () => setUser(null);
+	const handleLogin = nuser => {
+		setUser(nuser);
+		localStorage.setItem('dts_user', JSON.stringify(nuser));
+	};
+	const handleLougout = () => {
+		setUser(null);
+		localStorage.removeItem('dts_user');
+	};
+
+	useEffect(() => {
+		if (localStorage.getItem('dts_user'))
+			setUser(JSON.parse(localStorage.getItem('dts_user')));
+		else setUser(null);
+	}, []);
 
 	return (
 		<div className="App">

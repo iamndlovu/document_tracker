@@ -76,7 +76,7 @@ const UserList = ({ user }) => {
 				{users ? (
 					<ul className={styles.UserList}>
 						{users.map(user => (
-							<div key={user._id}>
+							<div key={user._id} id={user._id}>
 								<UserListItem
 									user={user}
 									handlers={{ deleteUser, toggleForm }}

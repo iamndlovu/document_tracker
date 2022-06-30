@@ -17,7 +17,11 @@ const FileItem = ({ file }) => {
 	return (
 		<tr>
 			<td>
-				<a href={`http://localhost:5000${file.path}`}>
+				<a
+					href={`http://localhost:5000${file.path}`}
+					target="_blank"
+					rel="noreferrer"
+				>
 					{file.path.split('/').pop()}
 				</a>
 			</td>
