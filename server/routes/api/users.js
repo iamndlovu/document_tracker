@@ -3,7 +3,7 @@ let User = require('../../models/User.model');
 
 router.route('/').get(async (req, res) => {
 	try {
-		const users = await User.find();
+		const users = await User.find().sort({ createdAt: -1 });
 		res.json(users);
 	} catch (err) {
 		res.status(400).json('Error: ' + err);

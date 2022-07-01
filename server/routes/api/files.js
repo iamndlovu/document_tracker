@@ -3,7 +3,7 @@ let File = require('../../models/File.model');
 
 router.route('/').get(async (req, res) => {
 	try {
-		const files = await File.find();
+		const files = await File.find().sort({ createdAt: -1 });
 		res.json(files);
 	} catch (err) {
 		res.status(400).json('Error: ' + err);
@@ -70,29 +70,12 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
 	File.findById(req.params.id)
 		.then(file => {
-			// if files present
-			// if (!(req.files === null)) {
-			// 	const actualFile = req.files.file;
-
-			// 	if (actualFile != null) {
-			// 		actualFile.mv(`${__dirname}/../../public${file.path}`, err => {
-			// 			if (err) {
-			// 				console.error(err);
-			// 				return res.status(500).send(err);
-			// 			}
-			// 		});
-			// 	} else {
-			// 		return res.status(400).json(`Error: No files uploaded`);
-			// 	}
 			file.path = req.body.path;
 			file.history = [...file.history, req.body.commit];
 			file
 				.save()
 				.then(() => res.json(file))
 				.catch(err => res.status(400).json(`Error: ${err}`));
-			// } else {
-			// 	return res.status(400).json(`Error: No files uploaded`);
-			// }
 		})
 		.catch(err => res.status(400).json(`Error: ${err}`));
 });

@@ -3,7 +3,7 @@ let PushRequest = require('../../models/PushRequest.model');
 
 router.route('/').get(async (req, res) => {
 	try {
-		const pushRequests = await PushRequest.find();
+		const pushRequests = await PushRequest.find().sort({ createdAt: -1 });
 		res.json(pushRequests);
 	} catch (err) {
 		res.status(400).json('Error: ' + err);
