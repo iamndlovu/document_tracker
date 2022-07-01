@@ -97,4 +97,16 @@ router.route('/update/:id').post((req, res) => {
 		.catch(err => res.status(400).json(`Error: ${err}`));
 });
 
+router.route('/update/history/:id').post((req, res) => {
+	File.findById(req.params.id)
+		.then(file => {
+			file.history = [...file.history, req.body.commit];
+			file
+				.save()
+				.then(() => res.json(file))
+				.catch(err => res.status(400).json(`Error: ${err}`));
+		})
+		.catch(err => res.status(400).json(`Error: ${err}`));
+});
+
 module.exports = router;

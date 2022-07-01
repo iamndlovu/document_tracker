@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import axios from 'axios';
 
-const FileItem = ({ file, showAll, handler }) => {
+const FileItem = ({ file, showAll, handler, toggle, setActiveEdit }) => {
 	const [user, setUser] = useState(null);
 
 	useEffect(() => {
@@ -13,6 +13,18 @@ const FileItem = ({ file, showAll, handler }) => {
 			.then(data => setUser(data.username))
 			.catch(err => alert(err));
 	});
+
+	const tryDelete = () => {
+		const userLevel = JSON.parse(
+			localStorage.getItem('dts_user')
+		).level.toLowerCase();
+		if (userLevel === 'staff') {
+			alert('You do not have permission to perform this action');
+			return;
+		} else if (userLevel === 'register' || userLevel === 'admin') {
+			return handler(file._id);
+		}
+	};
 
 	return (
 		<tr>
@@ -34,7 +46,14 @@ const FileItem = ({ file, showAll, handler }) => {
 			<td>{`${moment(file.createdAt).fromNow()}`}</td>
 			{showAll && (
 				<td>
-					<button>Edit</button>
+					<button
+						onClick={() => {
+							setActiveEdit(file._id);
+							toggle();
+						}}
+					>
+						Edit
+					</button>
 					<button>
 						<a
 							href={`http://localhost:5000${file.path}`}
@@ -44,7 +63,7 @@ const FileItem = ({ file, showAll, handler }) => {
 							View
 						</a>
 					</button>
-					<button onClick={() => handler(file._id)}>Delete</button>
+					<button onClick={() => tryDelete()}>Delete</button>
 				</td>
 			)}
 		</tr>
