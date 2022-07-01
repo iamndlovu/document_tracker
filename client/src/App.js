@@ -7,6 +7,7 @@ import Register from './pages/register';
 import Users from './pages/users';
 import Categories from './pages/categories';
 import Files from './pages/files';
+import Requests from './pages/pushRequests';
 import Logs from './pages/logs';
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
 					<Route path="/categories" element={<Categories user={user} />} />
 					<Route path="/logs/:id" element={<Logs user={user} />} />
 					<Route path="/files" element={<Files user={user} />} />
+					<Route path="/push-requests" element={<Requests user={user} />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

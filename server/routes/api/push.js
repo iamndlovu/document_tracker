@@ -66,6 +66,7 @@ router.route('/update/:id').post((req, res) => {
 	PushRequest.findById(req.params.id)
 		.then(pushRequest => {
 			pushRequest.status = status || pushRequest.status;
+			pushRequest.save();
 		})
 		.catch(err => res.status(400).json(`Error: ${err}`));
 });
